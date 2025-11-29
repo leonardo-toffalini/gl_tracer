@@ -15,8 +15,8 @@ void processInput(GLFWwindow *window);
 GLuint load_and_create_texture(const char *filename, GLenum format, GLint wrap_type);
 
 // settings
-const unsigned int SCR_WIDTH = 600;
-const unsigned int SCR_HEIGHT = 600;
+const int SCR_WIDTH = 800;
+const int SCR_HEIGHT = 800;
 
 int main() {
   glfwInit();
@@ -28,7 +28,7 @@ int main() {
   glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
 #endif
 
-  GLFWwindow *window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
+  GLFWwindow *window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "OpenGL raytracer", NULL, NULL);
   if (window == NULL) {
     printf("Failed to create GLFW window\n");
     glfwTerminate();
@@ -51,12 +51,12 @@ int main() {
   // full screen quad
   float vertices[] = {
     //       pos
-    -1.0f, -1.0f, -0.5f,
-     1.0f, -1.0f, -0.5f, 
-     1.0f,  1.0f, -0.5f, 
-     1.0f,  1.0f, -0.5f, 
-    -1.0f,  1.0f, -0.5f, 
-    -1.0f, -1.0f, -0.5f, 
+    -1.0f, -1.0f, -1.0f,
+     1.0f, -1.0f, -1.0f,
+     1.0f,  1.0f, -1.0f,
+     1.0f,  1.0f, -1.0f,
+    -1.0f,  1.0f, -1.0f,
+    -1.0f, -1.0f, -1.0f,
   };
   GLuint VBO, quadVAO;
   glGenVertexArrays(1, &quadVAO);
